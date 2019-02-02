@@ -3,8 +3,9 @@ from random import randint                  #Import randint module
 from datetime import datetime               #Import datetime module
 
 fake_data = Faker()                         #Assign fake data module to the varible fake_data
-
-def populate_fake_data():                   #Create a fake data function that promps for a filename and the number of entries then iterates through to populate data in a text file.
+                                            #Created a fake data function that promps for a filename and the number of entries then iterates through to populate data in a text file.
+                                            #Added logic below to prevent errors and to cover various conditions.
+def populate_fake_data():
     name = input('Enter the name of the file: ')
     if len(name) == 0:
         name = 'names.txt'
@@ -15,12 +16,12 @@ def populate_fake_data():                   #Create a fake data function that pr
         pass
     file = open(name,'w')
     while True:
-        num_entries = input('How many records do you need (select 1-2000)?')
+        num_entries = input('How many records do you need?: ')
         try:
             num_entries = int(num_entries)
             break
         except:
-            print('That is an incorrect number or type, please try again')
+            print('That is an incorrect number or type, please try again?: ')
 
     for num in range(1,num_entries+1):
         first_name = fake_data.first_name()
