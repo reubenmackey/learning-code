@@ -1,3 +1,8 @@
+# Find Multiples of two separate numbers within a start and end range.
+# Multiples of Number 1 prints "FIZZ"
+# Multiples of Number 2 prints "BUZZ"
+# Multiples of both Number 1 and 2 prints "FIZZ-BUZZ"
+
 def fizzbuzz(start, end, num1, num2):
     for num in range(start,end+1):
         if num % num1 == 0 and num % num2 == 0:
