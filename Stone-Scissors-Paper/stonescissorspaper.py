@@ -1,14 +1,14 @@
-from random import randint
+from random import randint                              #import randint module
 
-selection = ['stone','scissors','paper']
+selection = ['stone','scissors','paper']                #List created for cpu selection
 
 def cpu_selection():
-    index = randint(0,2)
-    return selection[index]
+    index = randint(0,2)                                #assign random integer between 0 and 2 to assign to the variable 'index'
+    return selection[index]                             #selecting an option from the selection list using the random 'index' variable to select an item from the list randomly at it's index position.
 
-def start_game():
+def start_game():                                       #function that starts the game
 
-    def play_again():
+    def play_again():                                   #Runs after the inital and subsequent games to prompt user to play again
         while True:
             play = input('Do you want to play again - Y/N: \n')
             if play.lower() == 'n' or play.lower() == 'no':
@@ -18,7 +18,8 @@ def start_game():
                 start_game()
             else:
                 print('That is not a valid option, try again!!')
-    while True:
+
+    while True:                                                                     #Logic run to Determine if a hand is valid or a DRAW before passing to the Logic part of the code to determine the winnner.
         cpu_hand = cpu_selection()
         user_hand = input("Choose your hand: ")
         if user_hand not in selection:
@@ -29,7 +30,7 @@ def start_game():
             cpu_hand = cpu_hand.capitalize()
             print('You have selected {} and the CPU selected {} which means it is a DRAW!!'.format(user_hand,cpu_hand))
             continue
-        else:
+        else:                                                                       #Logic run to determine the winner
             user_hand = user_hand.capitalize()
             cpu_hand = cpu_hand.capitalize()
             if user_hand == 'Stone' and cpu_hand == 'Paper':
@@ -49,7 +50,7 @@ def start_game():
             elif user_hand == 'Scissors' and cpu_hand == 'Paper':
                 print('YOU selected {} and CPU selected {}. YOU WIN!!'.format(
                     user_hand, cpu_hand))
-        play_again()
+        play_again()                                                                #After determining the winner, the play again function runs to prompt the user to play again.
 
 if __name__ == '__main__':
     print('Game Started\t\n')
