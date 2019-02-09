@@ -19,6 +19,12 @@ def start_game():                                       #function that starts th
             else:
                 print('That is not a valid option, try again!!')
 
+    def cpu_wins(you,cpu):
+        return 'YOU selected {} and CPU selected {}. CPU WINS!!'.format(you,cpu)    #created Function to remove repeatable text if CPU wins.
+
+    def you_win(you,cpu):
+        return 'YOU selected {} and CPU selected {}. YOU WIN!!'.format(you,cpu)     #created Function to remove repeatable text is you win.
+
     while True:                                                                     #Logic run to Determine if a hand is valid or a DRAW before passing to the Logic part of the code to determine the winnner.
         cpu_hand = cpu_selection()
         user_hand = input("Choose your hand: ")
@@ -34,22 +40,17 @@ def start_game():                                       #function that starts th
             user_hand = user_hand.capitalize()
             cpu_hand = cpu_hand.capitalize()
             if user_hand == 'Stone' and cpu_hand == 'Paper':
-                print('YOU selected {} and CPU selected {}. CPU WINS!!'.format(user_hand,cpu_hand))
+                print(cpu_wins(user_hand,cpu_hand))
             elif user_hand == 'Paper' and cpu_hand == 'Stone':
-                print('YOU selected {} and CPU selected {}. YOU WIN!!'.format(
-                    user_hand, cpu_hand))
+                print(you_win(user_hand,cpu_hand))
             elif user_hand == 'Scissors' and cpu_hand == 'Stone':
-                print('YOU selected {} and CPU selected {}. CPU WINS!!'.format(
-                    user_hand, cpu_hand))
+                print(cpu_wins(user_hand,cpu_hand))
             elif user_hand == 'Stone' and cpu_hand == 'Scissors':
-                print('YOU selected {} and CPU selected {}. YOU WIN!!'.format(
-                    user_hand, cpu_hand))
+                print(you_win(user_hand,cpu_hand))
             elif user_hand == 'Paper' and cpu_hand == 'Scissors':
-                print('YOU selected {} and CPU selected {}. CPU WINS!!'.format(
-                    user_hand, cpu_hand))
+                print(cpu_wins(user_hand,cpu_hand))
             elif user_hand == 'Scissors' and cpu_hand == 'Paper':
-                print('YOU selected {} and CPU selected {}. YOU WIN!!'.format(
-                    user_hand, cpu_hand))
+                print(you_win(user_hand,cpu_hand))
         play_again()                                                                #After determining the winner, the play again function runs to prompt the user to play again.
 
 if __name__ == '__main__':
