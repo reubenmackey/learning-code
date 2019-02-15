@@ -8,8 +8,8 @@ def change_color(name):                                 #Function created to ite
         sleep(1)
         print(colored(name,color))
 
-name = input("Please Enter a Name: ")                  #Name Input prompts to enter a name
+name = input("Please Enter a Name: ")                  #Name Input prompts to enter a name.
 
 
 if __name__ == '__main__':
-    change_color(name)                                 #Runs the change_color function and take name as the argument.
+    change_color(name)                                 #Runs the change_color function and takes the name input as the argument.
